@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shakhrambek | AP CS & Chiaotzu Portfolio</title>
+    <title>Shakhrambek | AP CS Portfolio</title>
     <style>
-        /* Chiaotzu-Inspired Clean Theme Variables */
+        /* Clean Professional Dark Theme */
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: #161f30;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
-            --accent-color: #22c55e; /* Crane School Green */
-            --accent-yellow: #eab308; /* Outfit Accent Yellow */
-            --accent-red: #ef4444; /* Cheek Red */
+            --accent-color: #38bdf8; /* Modern Light Blue */
             --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
@@ -41,7 +39,7 @@
             gap: 3rem;
         }
 
-        /* Desktop Switch to Two Columns */
+        /* Desktop Layout Configuration */
         @media (min-width: 850px) {
             .portfolio-container {
                 grid-template-columns: 320px 1fr;
@@ -55,51 +53,31 @@
             }
         }
 
-        /* LEFT COLUMN: Profile Card Styles */
+        /* LEFT COLUMN: Profile Sidebar */
         .profile-card {
             background-color: var(--card-bg);
             padding: 2.5rem 2rem;
             border-radius: 16px;
-            border: 1px solid rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
         }
 
-        /* Chiaotzu Custom Avatar Styling */
-        .avatar-container {
-            position: relative;
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 1.5rem;
-        }
-
+        /* Clean Monogram Avatar Placeholder */
         .avatar {
-            width: 100%;
-            height: 100%;
-            background-color: #ffffff; /* White skin */
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #1e293b, var(--accent-color));
             border-radius: 50%;
+            margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: #000000;
-            border: 4px solid var(--accent-color);
-            box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            border: 2px solid rgba(56, 189, 248, 0.2);
         }
-
-        /* Blushing Red Cheek Dots */
-        .avatar-container::before, .avatar-container::after {
-            content: "";
-            position: absolute;
-            bottom: 12px;
-            width: 16px;
-            height: 16px;
-            background-color: var(--accent-red);
-            border-radius: 50%;
-        }
-        .avatar-container::before { left: 4px; }
-        .avatar-container::after { right: 4px; }
 
         h1 {
             font-size: 2rem;
@@ -109,15 +87,15 @@
         }
 
         .subtitle {
-            font-size: 0.85rem;
-            color: var(--accent-yellow);
+            font-size: 0.9rem;
+            color: var(--accent-color);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
             margin-bottom: 2rem;
         }
 
-        /* Profile Actions / Links */
+        /* Navigation Links inside Profile */
         .profile-links {
             display: flex;
             flex-direction: column;
@@ -125,7 +103,7 @@
             margin-bottom: 2rem;
         }
 
-        /* RIGHT COLUMN: Content Styles */
+        /* RIGHT COLUMN: Content Areas */
         h2 {
             font-size: 1.4rem;
             margin-bottom: 1.2rem;
@@ -151,7 +129,7 @@
             margin-bottom: 1rem;
         }
 
-        /* Skills Tags */
+        /* Technical Skill Badges */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
@@ -160,16 +138,16 @@
         }
 
         .skill-tag {
-            background-color: rgba(34, 197, 94, 0.1);
-            color: #4ade80;
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
             font-size: 0.8rem;
             font-family: monospace;
-            border: 1px solid rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
-        /* Projects Grid */
+        /* Projects Grid Setup */
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -196,7 +174,7 @@
 
         .project-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(234, 179, 8, 0.3); /* Hover Yellow Glow */
+            border-color: rgba(56, 189, 248, 0.3);
         }
 
         .project-title {
@@ -211,7 +189,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Buttons & Links */
+        /* Layout Action Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -228,22 +206,23 @@
         }
 
         .btn:hover {
-            border-color: var(--accent-yellow);
-            color: var(--accent-yellow);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
         }
 
         .btn-primary {
             background-color: var(--accent-color);
-            color: #ffffff;
+            color: #0f172a;
             border: none;
+            font-weight: 600;
         }
 
         .btn-primary:hover {
-            background-color: #16a34a;
-            color: #ffffff;
+            background-color: #7dd3fc;
+            color: #0f172a;
         }
 
-        /* Footer */
+        /* Footer Element */
         footer {
             grid-column: 1 / -1;
             text-align: center;
@@ -262,13 +241,11 @@
         <!-- LEFT COLUMN: Profile Sidebar -->
         <aside class="left-column">
             <div class="profile-card">
-                <!-- Chiaotzu Inspired Avatar -->
-                <div class="avatar-container">
-                    <div class="avatar">鶴</div>
-                </div>
+                <!-- Clean Monogram Avatar -->
+                <div class="avatar">S</div>
                 
                 <h1>Shakhrambek</h1>
-                <div class="subtitle">AP CS Student & Z-Fighter</div>
+                <div class="subtitle">AP CS Student</div>
                 
                 <div class="profile-links">
                     <a href="https://github.com" class="btn btn-primary" target="_blank">GitHub Profile</a>
@@ -278,7 +255,8 @@
                 <div class="skills-list">
                     <span class="skill-tag">Java</span>
                     <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Telekinesis</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">HTML/CSS</span>
                 </div>
             </div>
         </aside>
@@ -291,13 +269,12 @@
                 <h2>About Me</h2>
                 <p>
                     Hi! I am Shakhrambek, a high school student passionate about software engineering, 
-                    complex data algorithms, and anime-inspired front-end designs. Right now, I am mastering 
-                    object-oriented logic through the AP Computer Science curriculum.
+                    complex data algorithms, and clean front-end application designs. Right now, I am focusing on 
+                    mastering object-oriented program logic through the AP Computer Science curriculum.
                 </p>
                 <p>
-                    I love building applications that serve as 
-                    the perfect companion tools for daily tasks. When I am not writing code, I enjoy exploring clean CSS frameworks 
-                    and rewatching classic martial arts tournaments.
+                    I enjoy building efficient programs for classroom assignments and creating practical utility tools in my free time. 
+                    I'm focused on writing clean code, building responsive user experiences, and exploring new development frameworks.
                 </p>
             </section>
 
@@ -317,3 +294,22 @@
 
                     <!-- Project 2 -->
                     <div class="project-card">
+                        <div>
+                            <div class="project-title">Personal Web App</div>
+                            <div class="project-desc">A lightweight front-end web utility template stylized using modern CSS grids and responsive layouts.</div>
+                        </div>
+                        <a href="https://github.io" class="btn" target="_blank">Launch Site</a>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Shakhrambek. Built with HTML and CSS.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
