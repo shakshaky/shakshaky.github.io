@@ -63,16 +63,20 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
         }
 
-        /* GitHub Profile Picture Styles */
+        /* Clean Monogram Avatar Placeholder */
         .avatar {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #1e293b, var(--accent-color));
             border-radius: 50%;
             margin: 0 auto 1.5rem;
-            display: block;
-            object-fit: cover;
-            border: 3px solid rgba(56, 189, 248, 0.4);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            border: 2px solid rgba(56, 189, 248, 0.2);
         }
 
         h1 {
@@ -237,8 +241,8 @@
         <!-- LEFT COLUMN: Profile Sidebar -->
         <aside class="left-column">
             <div class="profile-card">
-                <!-- Dynamically links to your current GitHub image -->
-                <img src="https://githubusercontent.com" alt="Shakhrambek Profile Picture" class="avatar">
+                <!-- Clean Monogram Avatar -->
+                <div class="avatar">S</div>
                 
                 <h1>Shakhrambek</h1>
                 <div class="subtitle">AP CS Student</div>
