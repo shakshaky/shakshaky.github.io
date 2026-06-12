@@ -31,20 +31,57 @@
             padding: 2rem 1rem;
         }
 
-        .container {
-            max-width: 800px;
+        /* Two-Column Main Layout Container */
+        .portfolio-container {
+            max-width: 1100px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
         }
 
-        /* Header Section */
-        header {
+        /* Desktop Switch to Two Columns */
+        @media (min-width: 850px) {
+            .portfolio-container {
+                grid-template-columns: 300px 1fr;
+                padding-top: 2rem;
+            }
+            
+            /* Keeps the left column static on the screen while scrolling right column */
+            .left-column {
+                position: sticky;
+                top: 2rem;
+                height: max-content;
+            }
+        }
+
+        /* LEFT COLUMN: Profile Card Styles */
+        .profile-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
-            padding: 3rem 0 2rem;
-            border-bottom: 1px solid var(--card-bg);
+        }
+
+        /* Placeholder Avatar Circle */
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #1e293b, var(--accent-color));
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            border: 2px solid rgba(56, 189, 248, 0.2);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             letter-spacing: -0.05em;
             margin-bottom: 0.5rem;
@@ -54,20 +91,25 @@
         }
 
         .subtitle {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             color: var(--accent-color);
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            margin-bottom: 2rem;
         }
 
-        /* Bio Section */
-        .bio-section {
-            margin: 3rem 0;
+        /* Profile Actions / Links */
+        .profile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
         }
 
+        /* RIGHT COLUMN: Content Styles */
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -81,6 +123,10 @@
             background: var(--card-bg);
         }
 
+        .bio-section, .projects-section {
+            margin-bottom: 3rem;
+        }
+
         p {
             color: var(--text-secondary);
             font-size: 1.05rem;
@@ -92,24 +138,20 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 1rem;
+            justify-content: center;
         }
 
         .skill-tag {
-            background-color: var(--card-bg);
-            color: var(--accent-color);
+            background-color: var(--bg-color);
+            color: var(--text-secondary);
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-family: monospace;
-            border: 1px solid rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* Projects Grid */
-        .projects-section {
-            margin: 3rem 0;
-        }
-
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -140,13 +182,13 @@
         }
 
         .project-title {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
         .project-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
         }
@@ -160,7 +202,7 @@
             color: var(--accent-color);
             border: 1px solid var(--accent-color);
             padding: 0.5rem 1rem;
-            border-radius: 4px;
+            border-radius: 6px;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -172,10 +214,20 @@
             color: var(--bg-color);
         }
 
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
         /* Footer */
         footer {
+            grid-column: 1 / -1;
             text-align: center;
-            margin-top: 5rem;
+            margin-top: 2rem;
             padding-top: 2rem;
             border-top: 1px solid var(--card-bg);
             color: var(--text-secondary);
@@ -185,59 +237,74 @@
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <h1>Shakhrambek</h1>
-            <div class="subtitle">AP Computer Science Student</div>
-        </header>
-
-        <!-- About Me Section -->
-        <section class="bio-section">
-            <h2>About Me</h2>
-            <p>
-                Hi! I am Shakhrambek, a high school student passionate about software engineering, 
-                problem-solving, and building applications. Currently digging deep into algorithms, data structures, 
-                and object-oriented programming through my AP Computer Science curriculum. 
-            </p>
-            <p>
-                When I am not studying for exams, I spend my time programming personal tools, collaborating on open-source 
-                repositories, and exploring modern web technologies.
-            </p>
-            <div class="skills-list">
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">HTML/CSS</span>
-                <span class="skill-tag">Git & GitHub</span>
-                <span class="skill-tag">Algorithms</span>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="projects-section">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
+    <div class="portfolio-container">
+        
+        <!-- LEFT COLUMN: Profile Sidebar -->
+        <aside class="left-column">
+            <div class="profile-card">
+                <!-- Avatar Initials Placeholder -->
+                <div class="avatar">S</div>
                 
-                <!-- Project 1 Placeholder -->
-                <div class="project-card">
-                    <div>
-                        <div class="project-title">AP CS Lab Solutions</div>
-                        <div class="project-desc">A collection of optimized Java programs and algorithm implementations built for classroom assignments.</div>
-                    </div>
-                    <a href="https://github.com" class="btn" target="_blank">View Repository</a>
+                <h1>Shakhrambek</h1>
+                <div class="subtitle">AP CS Student</div>
+                
+                <div class="profile-links">
+                    <a href="https://github.com" class="btn btn-primary" target="_blank">GitHub Profile</a>
+                    <a href="mailto:your-email@example.com" class="btn">Contact Me</a>
                 </div>
 
-                <!-- Project 2 Placeholder -->
-                <div class="project-card">
-                    <div>
-                        <div class="project-title">Personal Web App</div>
-                        <div class="project-desc">A lightweight front-end utility app designed to practice responsive UI layouts and clean web styling.</div>
-                    </div>
-                    <a href="https://github.io" class="btn" target="_blank">Launch Site</a>
+                <div class="skills-list">
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">Git</span>
                 </div>
-
             </div>
-        </section>
+        </aside>
+
+        <!-- RIGHT COLUMN: Main Content Area -->
+        <main class="right-column">
+            
+            <!-- About Me Section -->
+            <section class="bio-section">
+                <h2>About Me</h2>
+                <p>
+                    Hi! I am Shakhrambek, a high school student passionate about software engineering, 
+                    problem-solving, and building applications. Currently digging deep into algorithms, data structures, 
+                    and object-oriented programming through my AP Computer Science curriculum. 
+                </p>
+                <p>
+                    When I am not studying for exams, I spend my time programming personal tools, collaborating on open-source 
+                    repositories, and exploring modern web technologies.
+                </p>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="projects-section">
+                <h2>Featured Projects</h2>
+                <div class="projects-grid">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div>
+                            <div class="project-title">AP CS Lab Solutions</div>
+                            <div class="project-desc">A collection of optimized Java programs and algorithm implementations built for classroom assignments.</div>
+                        </div>
+                        <a href="https://github.com" class="btn" target="_blank">View Repository</a>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div>
+                            <div class="project-title">Personal Web App</div>
+                            <div class="project-desc">A lightweight front-end utility app designed to practice responsive UI layouts and clean web styling.</div>
+                        </div>
+                        <a href="https://github.io" class="btn" target="_blank">Launch Site</a>
+                    </div>
+
+                </div>
+            </section>
+        </main>
 
         <!-- Footer -->
         <footer>
