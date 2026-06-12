@@ -1,13 +1,249 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    
-    <p>hey its my own website</p>
-    
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakhrambek | AP CS Portfolio</title>
+    <style>
+        /* Modern CSS Variables for Easy Customization */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid var(--card-bg);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--text-primary), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            margin: 3rem 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background: var(--card-bg);
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Tags */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background-color: var(--card-bg);
+            color: var(--accent-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-family: monospace;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            margin: 3rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Buttons & Links */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-bg);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Shakhrambek</h1>
+            <div class="subtitle">AP Computer Science Student</div>
+        </header>
+
+        <!-- About Me Section -->
+        <section class="bio-section">
+            <h2>About Me</h2>
+            <p>
+                Hi! I am Shakhrambek, a high school student passionate about software engineering, 
+                problem-solving, and building applications. Currently digging deep into algorithms, data structures, 
+                and object-oriented programming through my AP Computer Science curriculum. 
+            </p>
+            <p>
+                When I am not studying for exams, I spend my time programming personal tools, collaborating on open-source 
+                repositories, and exploring modern web technologies.
+            </p>
+            <div class="skills-list">
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Algorithms</span>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 Placeholder -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">AP CS Lab Solutions</div>
+                        <div class="project-desc">A collection of optimized Java programs and algorithm implementations built for classroom assignments.</div>
+                    </div>
+                    <a href="https://github.com" class="btn" target="_blank">View Repository</a>
+                </div>
+
+                <!-- Project 2 Placeholder -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Personal Web App</div>
+                        <div class="project-desc">A lightweight front-end utility app designed to practice responsive UI layouts and clean web styling.</div>
+                    </div>
+                    <a href="https://github.io" class="btn" target="_blank">Launch Site</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Shakhrambek. Built with HTML and CSS.</p>
+        </footer>
+    </div>
+
+</body>
 </html>
