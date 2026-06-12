@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shakhrambek | AP CS Portfolio</title>
+    <title>Shakhrambek | AP CS & Chiaotzu Portfolio</title>
     <style>
-        /* Modern CSS Variables for Easy Customization */
+        /* Chiaotzu-Inspired Clean Theme Variables */
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
+            --bg-color: #0b0f19;
+            --card-bg: #161f30;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
-            --accent-color: #38bdf8;
-            --accent-hover: #7dd3fc;
-            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --accent-color: #22c55e; /* Crane School Green */
+            --accent-yellow: #eab308; /* Outfit Accent Yellow */
+            --accent-red: #ef4444; /* Cheek Red */
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         /* Reset and Base Styles */
@@ -43,11 +44,10 @@
         /* Desktop Switch to Two Columns */
         @media (min-width: 850px) {
             .portfolio-container {
-                grid-template-columns: 300px 1fr;
+                grid-template-columns: 320px 1fr;
                 padding-top: 2rem;
             }
             
-            /* Keeps the left column static on the screen while scrolling right column */
             .left-column {
                 position: sticky;
                 top: 2rem;
@@ -58,44 +58,62 @@
         /* LEFT COLUMN: Profile Card Styles */
         .profile-card {
             background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(34, 197, 94, 0.15);
             text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
         }
 
-        /* Placeholder Avatar Circle */
-        .avatar {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #1e293b, var(--accent-color));
-            border-radius: 50%;
+        /* Chiaotzu Custom Avatar Styling */
+        .avatar-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
             margin: 0 auto 1.5rem;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff; /* White skin */
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--text-primary);
-            border: 2px solid rgba(56, 189, 248, 0.2);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #000000;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
         }
+
+        /* Blushing Red Cheek Dots */
+        .avatar-container::before, .avatar-container::after {
+            content: "";
+            position: absolute;
+            bottom: 12px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent-red);
+            border-radius: 50%;
+        }
+        .avatar-container::before { left: 4px; }
+        .avatar-container::after { right: 4px; }
 
         h1 {
             font-size: 2rem;
             font-weight: 800;
             letter-spacing: -0.05em;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, var(--text-primary), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.25rem;
         }
 
         .subtitle {
-            font-size: 0.95rem;
-            color: var(--accent-color);
-            font-weight: 500;
+            font-size: 0.85rem;
+            color: var(--accent-yellow);
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
             margin-bottom: 2rem;
         }
 
@@ -110,7 +128,7 @@
         /* RIGHT COLUMN: Content Styles */
         h2 {
             font-size: 1.4rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -120,7 +138,7 @@
             content: "";
             flex-grow: 1;
             height: 1px;
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .bio-section, .projects-section {
@@ -142,13 +160,13 @@
         }
 
         .skill-tag {
-            background-color: var(--bg-color);
-            color: var(--text-secondary);
+            background-color: rgba(34, 197, 94, 0.1);
+            color: #4ade80;
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
             font-size: 0.8rem;
             font-family: monospace;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(34, 197, 94, 0.2);
         }
 
         /* Projects Grid */
@@ -168,8 +186,8 @@
         .project-card {
             background-color: var(--card-bg);
             padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid transparent;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
             transition: transform 0.2s ease, border-color 0.2s ease;
             display: flex;
             flex-direction: column;
@@ -178,7 +196,7 @@
 
         .project-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(56, 189, 248, 0.3);
+            border-color: rgba(234, 179, 8, 0.3); /* Hover Yellow Glow */
         }
 
         .project-title {
@@ -199,28 +217,30 @@
             align-items: center;
             justify-content: center;
             background-color: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 0.5rem 1rem;
             border-radius: 6px;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .btn:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
+            border-color: var(--accent-yellow);
+            color: var(--accent-yellow);
         }
 
         .btn-primary {
             background-color: var(--accent-color);
-            color: var(--bg-color);
+            color: #ffffff;
+            border: none;
         }
 
         .btn-primary:hover {
-            background-color: var(--accent-hover);
+            background-color: #16a34a;
+            color: #ffffff;
         }
 
         /* Footer */
@@ -229,7 +249,7 @@
             text-align: center;
             margin-top: 2rem;
             padding-top: 2rem;
-            border-top: 1px solid var(--card-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
@@ -242,22 +262,23 @@
         <!-- LEFT COLUMN: Profile Sidebar -->
         <aside class="left-column">
             <div class="profile-card">
-                <!-- Avatar Initials Placeholder -->
-                <div class="avatar">S</div>
+                <!-- Chiaotzu Inspired Avatar -->
+                <div class="avatar-container">
+                    <div class="avatar">鶴</div>
+                </div>
                 
                 <h1>Shakhrambek</h1>
-                <div class="subtitle">AP CS Student</div>
+                <div class="subtitle">AP CS Student & Z-Fighter</div>
                 
                 <div class="profile-links">
                     <a href="https://github.com" class="btn btn-primary" target="_blank">GitHub Profile</a>
-                    <a href="mailto:your-email@example.com" class="btn">Contact Me</a>
+                    <a href="https://github.io" class="btn">Launch Site</a>
                 </div>
 
                 <div class="skills-list">
                     <span class="skill-tag">Java</span>
                     <span class="skill-tag">Python</span>
-                    <span class="skill-tag">HTML/CSS</span>
-                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Telekinesis</span>
                 </div>
             </div>
         </aside>
@@ -270,47 +291,29 @@
                 <h2>About Me</h2>
                 <p>
                     Hi! I am Shakhrambek, a high school student passionate about software engineering, 
-                    problem-solving, and building applications. Currently digging deep into algorithms, data structures, 
-                    and object-oriented programming through my AP Computer Science curriculum. 
+                    complex data algorithms, and anime-inspired front-end designs. Right now, I am mastering 
+                    object-oriented logic through the AP Computer Science curriculum.
                 </p>
                 <p>
-                    When I am not studying for exams, I spend my time programming personal tools, collaborating on open-source 
-                    repositories, and exploring modern web technologies.
+                    I love building applications that serve as 
+                    the perfect companion tools for daily tasks. When I am not writing code, I enjoy exploring clean CSS frameworks 
+                    and rewatching classic martial arts tournaments.
                 </p>
             </section>
 
             <!-- Projects Section -->
             <section class="projects-section">
-                <h2>Featured Projects</h2>
+                <h2>Featured Repositories</h2>
                 <div class="projects-grid">
                     
                     <!-- Project 1 -->
                     <div class="project-card">
                         <div>
                             <div class="project-title">AP CS Lab Solutions</div>
-                            <div class="project-desc">A collection of optimized Java programs and algorithm implementations built for classroom assignments.</div>
+                            <div class="project-desc">A collection of optimized Java programs, matrix manipulation scripts, and searching algorithms built for classes.</div>
                         </div>
                         <a href="https://github.com" class="btn" target="_blank">View Repository</a>
                     </div>
 
                     <!-- Project 2 -->
                     <div class="project-card">
-                        <div>
-                            <div class="project-title">Personal Web App</div>
-                            <div class="project-desc">A lightweight front-end utility app designed to practice responsive UI layouts and clean web styling.</div>
-                        </div>
-                        <a href="https://github.io" class="btn" target="_blank">Launch Site</a>
-                    </div>
-
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2026 Shakhrambek. Built with HTML and CSS.</p>
-        </footer>
-    </div>
-
-</body>
-</html>
